@@ -43,8 +43,9 @@ export function AdminDashboard({ isOpen, onClose, onProductUpdated }) {
   const [userRole, setUserRole] = useState(null)
 
   // Login form state
-  const [loginEmail, setLoginEmail] = useState('')
-  const [loginPassword, setLoginPassword] = useState('')
+  const [loginEmail, setLoginEmail] = useState('manosvsm20070@gmail.com')
+  const [loginPassword, setLoginPassword] = useState('manosvsm')
+  const [showLoginPassword, setShowLoginPassword] = useState(false)
   const [loginSubmitting, setLoginSubmitting] = useState(false)
   const [loginError, setLoginError] = useState(null)
 
@@ -176,8 +177,8 @@ export function AdminDashboard({ isOpen, onClose, onProductUpdated }) {
     setCurrentUser(null)
     setIsAdmin(false)
     setUserRole(null)
-    setLoginEmail('')
-    setLoginPassword('')
+    setLoginEmail('manosvsm20070@gmail.com')
+    setLoginPassword('manosvsm')
   }
 
   // Filtered Products
@@ -673,6 +674,46 @@ $$;`
                   </div>
                 )}
 
+                {/* Admin Quick Credentials Info Card */}
+                <div
+                  style={{
+                    background: 'rgba(2, 132, 199, 0.08)',
+                    border: '1px solid rgba(56, 189, 248, 0.25)',
+                    borderRadius: '8px',
+                    padding: '0.65rem 0.85rem',
+                    marginBottom: '1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontSize: '0.78rem'
+                  }}
+                >
+                  <div>
+                    <div style={{ color: '#94a3b8', fontSize: '0.72rem' }}>Configured Admin Account:</div>
+                    <div style={{ color: '#38bdf8', fontWeight: 600 }}>manosvsm20070@gmail.com</div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLoginEmail('manosvsm20070@gmail.com')
+                      setLoginPassword('manosvsm')
+                    }}
+                    style={{
+                      background: '#0284c7',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '5px',
+                      padding: '4px 10px',
+                      fontSize: '0.72rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      transition: 'background 0.2s'
+                    }}
+                  >
+                    Auto-Fill
+                  </button>
+                </div>
+
                 <form onSubmit={handleLogin}>
                   <div style={{ marginBottom: '1rem' }}>
                     <label
@@ -690,7 +731,7 @@ $$;`
                       type="email"
                       value={loginEmail}
                       onChange={(e) => setLoginEmail(e.target.value)}
-                      placeholder="admin@dolphinaquarium.com"
+                      placeholder="manosvsm20070@gmail.com"
                       required
                       style={{
                         width: '100%',
@@ -706,19 +747,53 @@ $$;`
                   </div>
 
                   <div style={{ marginBottom: '1.25rem' }}>
-                    <label
+                    <div
                       style={{
-                        display: 'block',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        color: '#cbd5e1',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                         marginBottom: '0.35rem'
                       }}
                     >
-                      Password
-                    </label>
+                      <label
+                        style={{
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          color: '#cbd5e1'
+                        }}
+                      >
+                        Password
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => setShowLoginPassword(!showLoginPassword)}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: '#94a3b8',
+                          fontSize: '0.72rem',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          cursor: 'pointer',
+                          padding: 0
+                        }}
+                      >
+                        {showLoginPassword ? (
+                          <>
+                            <EyeOff size={13} />
+                            <span>Hide</span>
+                          </>
+                        ) : (
+                          <>
+                            <Eye size={13} />
+                            <span>Show</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
                     <input
-                      type="password"
+                      type={showLoginPassword ? 'text' : 'password'}
                       value={loginPassword}
                       onChange={(e) => setLoginPassword(e.target.value)}
                       placeholder="••••••••••••"

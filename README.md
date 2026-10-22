@@ -1,16 +1,35 @@
-# React + Vite
+# Dolphin Aquarium 🐬
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Premium aquarium web application and catalog for Dolphin Aquarium, Madipakkam, Chennai. Featuring full Supabase database persistence, real-time catalog management, WhatsApp order checkout, and a secure administrator dashboard.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+# Install dependencies
+npm install
 
-## React Compiler
+# Start development server
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Build for production
+npm run build
+```
 
-## Expanding the Oxlint configuration
+## 🔐 Administrator Access
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The protected catalog management dashboard allows adding, updating, publishing/unpublishing, and deleting fish and aquarium products.
+
+- **Admin Access URL**: `http://localhost:5173/#/admin` (or click **Admin Panel** in the footer)
+- **User ID / Email**: `manosvsm20070@gmail.com`
+- **Password**: `manosvsm`
+
+### Admin Features
+- 📊 **Real-time Inventory Overview**: Total items, in-stock count, live fish, published/draft status.
+- ➕ **Product Management**: Add new livestock, pumps, food, and accessories with image upload and water parameter guides (pH, temperature, temperament).
+- ✏️ **Edit & Publish Controls**: Instantly toggle draft/published status and update prices, stock, and sizes.
+- 🗄️ **Supabase Cloud Backend**: Backed by PostgreSQL with Row Level Security (RLS) and storage buckets.
+
+## 🛠️ Tech Stack
+- **Frontend**: React 19, Vite, Lucide Icons
+- **Database & Auth**: Supabase (PostgreSQL, Supabase Auth, Storage)
+- **Styling**: Vanilla CSS with dark ocean theme & glassmorphic design
