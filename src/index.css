@@ -1683,22 +1683,6 @@ body {
   color: var(--primary);
 }
 
-.footer-admin-link {
-  background: transparent;
-  border: none;
-  color: var(--primary);
-  font-size: 0.825rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: left;
-  font-family: inherit;
-  padding: 0;
-}
-
-.footer-admin-link:hover {
-  text-decoration: underline;
-}
-
 .footer-bottom-bar {
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
@@ -1736,16 +1720,6 @@ body {
 }
 .footer-bottom-links a:hover {
   color: var(--primary);
-}
-
-.footer-admin-badge {
-  background: transparent;
-  border: none;
-  color: var(--primary);
-  font-weight: 800;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.75rem;
 }
 
 /* ==========================================================================

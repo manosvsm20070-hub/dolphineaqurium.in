@@ -15,7 +15,6 @@ import { Footer } from './components/Footer'
 import { CartDrawer } from './components/CartDrawer'
 import { MobileBottomNav } from './components/MobileBottomNav'
 import { FloatingWhatsApp } from './components/FloatingWhatsApp'
-import { AdminModal } from './components/AdminModal'
 import { CatalogPage } from './pages/CatalogPage'
 import { ProductDetailPage } from './pages/ProductDetailPage'
 import { CartPage } from './pages/CartPage'
@@ -25,12 +24,11 @@ function Storefront() {
   const [currentView, setCurrentView] = useState('home') // 'home' | 'catalog' | 'product' | 'cart'
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [activeCategory, setActiveCategory] = useState('all')
-  const [adminModalOpen, setAdminModalOpen] = useState(false)
 
   // Load products from Supabase (if configured) or fallback sample data
-  const { products, loading, isUsingSupabase, sourceMessage, refreshProducts } = useProducts()
+  const { products, loading, isUsingSupabase, sourceMessage } = useProducts()
 
-  // Handle URL hash routing (e.g., #/catalog, #/cart, #/product/:id, #/admin)
+  // Handle URL hash routing (e.g., #/catalog, #/cart, #/product/:id)
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash
@@ -45,8 +43,6 @@ function Storefront() {
         setCurrentView('catalog')
       } else if (hash === '#/cart') {
         setCurrentView('cart')
-      } else if (hash === '#/admin' || hash === '#admin') {
-        setAdminModalOpen(true)
       }
     }
 
@@ -113,9 +109,7 @@ function Storefront() {
   }
 
   const handleNavSelect = (tabId) => {
-    if (tabId === 'admin') {
-      setAdminModalOpen(true)
-    } else if (tabId === 'catalog' || tabId === 'livestock') {
+    if (tabId === 'catalog' || tabId === 'livestock') {
       handleNavigateCatalog('all')
     } else if (tabId === 'motors') {
       handleNavigateCatalog('Motors & Pumps')
@@ -380,7 +374,7 @@ function Storefront() {
       </main>
 
       {/* Footer */}
-      <Footer onNavigateAdmin={() => setAdminModalOpen(true)} />
+      <Footer />
 
       {/* Slide-out Cart Drawer with link to full cart */}
       <CartDrawer onViewFullCart={handleNavigateCart} />
@@ -393,13 +387,6 @@ function Storefront() {
         currentView={currentView}
         onSelectTab={handleNavSelect}
         onNavigateCart={handleNavigateCart}
-      />
-
-      {/* Admin Panel & Management Console */}
-      <AdminModal
-        isOpen={adminModalOpen}
-        onClose={() => setAdminModalOpen(false)}
-        onProductUpdated={refreshProducts}
       />
     </div>
   )

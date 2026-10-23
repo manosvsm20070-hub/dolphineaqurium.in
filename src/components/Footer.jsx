@@ -1,7 +1,7 @@
 import { MapPin, Phone, MessageCircle, Waves } from 'lucide-react'
 import { STORE_INFO } from '../data/storeInfo'
 
-export function Footer({ onNavigateAdmin }) {
+export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-container">
@@ -63,15 +63,6 @@ export function Footer({ onNavigateAdmin }) {
               <li><a href="#motors">Air Pumps &amp; Water Motors</a></li>
               <li><a href="#medicines">Fish Medicines &amp; Water Care</a></li>
               <li><a href="#food">Premium Fish Pellets &amp; Flakes</a></li>
-              <li>
-                <button
-                  type="button"
-                  onClick={onNavigateAdmin}
-                  className="footer-admin-link"
-                >
-                  Admin Panel Login
-                </button>
-              </li>
             </ul>
           </div>
         </div>
@@ -86,13 +77,6 @@ export function Footer({ onNavigateAdmin }) {
             <a href={STORE_INFO.googleMapsUrl} target="_blank" rel="noopener noreferrer">
               Directions &amp; Map
             </a>
-            <button
-              type="button"
-              onClick={onNavigateAdmin}
-              className="footer-admin-badge"
-            >
-              Admin Access
-            </button>
           </div>
         </div>
       </div>

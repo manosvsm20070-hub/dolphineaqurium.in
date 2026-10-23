@@ -23,7 +23,6 @@ export function Header({ currentView = 'home', onSelectTab, onNavigateCart }) {
     { id: 'tanks', label: 'Tanks & Custom', href: '#tanks' },
     { id: 'medicines', label: 'Care & Medicines', href: '#medicines' },
     { id: 'contact', label: 'Store Info', href: '#contact' },
-    { id: 'admin', label: 'Admin', href: '#admin' },
   ]
 
   const handleNavClick = (id, href) => {
